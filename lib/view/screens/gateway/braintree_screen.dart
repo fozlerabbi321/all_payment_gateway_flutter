@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_braintree/flutter_braintree.dart';
 
+import '../../../constants/strings.dart';
+
 class BraintreeScreen extends StatefulWidget {
   const BraintreeScreen({Key? key}) : super(key: key);
 
@@ -9,7 +11,6 @@ class BraintreeScreen extends StatefulWidget {
 }
 
 class _MyAppState extends State<BraintreeScreen> {
-  static const String tokenizationKey = 'sandbox_8hxpnkht_kzdtzv2btm4p7s5j';
 
   void showNonce(BraintreePaymentMethodNonce nonce) {
     showDialog(

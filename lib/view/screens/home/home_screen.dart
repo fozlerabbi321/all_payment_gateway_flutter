@@ -18,12 +18,14 @@ import 'package:mystarter/constants/strings.dart';
 import 'package:mystarter/constants/style_data.dart';
 import 'package:mystarter/view/screens/gateway/braintree_screen.dart';
 import 'package:mystarter/view/screens/gateway/flutter_wave_screen.dart';
+import 'package:paytm_allinonesdk/paytm_allinonesdk.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 import '../../../constants/size_config.dart';
 import '../../../helper/stripe_payment_helpter.dart';
 import '../../widgets/default_btn.dart';
 import '../gateway/paystack_screen.dart';
+import '../gateway/paytm_screeen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -38,9 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   //razorpay
   late Razorpay _razorpay;
-
-  //end razorpay
-
   @override
   void initState() {
     super.initState();
@@ -66,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(
           'Payment Gateway List'.tr,
         ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -140,6 +140,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: 'SSL Commerz'.tr,
                 onPress: () async {
                   await sslCommercePayment(context);
+                },
+              ),
+              kHeightBox10,
+              DefaultBtn(
+                width: SizeConfig.screenWidth,
+                radius: 10.0,
+                title: 'Paytm'.tr,
+                onPress: () async {
+                  Get.to(() => const PaytmScreen());
                 },
               ),
             ],
@@ -343,5 +352,6 @@ class _HomeScreenState extends State<HomeScreen> {
     showCustomSnackBar(
       "EXTERNAL_WALLET: " + response.walletName!,
     );
-  }
+  }///end razor pay
+
 }

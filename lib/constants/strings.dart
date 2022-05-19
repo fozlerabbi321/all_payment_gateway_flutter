@@ -43,6 +43,8 @@ String kPayStackPublicKey = 'pk_test_d6c9db1c01e54ef274b80c6c5138bcdad41da3c3';
 String kWavePublicKey = 'FLWPUBK_TEST-b100340af976af485842813badb813b9-X';
 String kWaveSecretKey= 'FLWSECK_TEST-d0a5f60a8bf8f7bb7ac05ca75867a0c0-X';
 String kWaveEncryptionKey= 'FLWSECK_TESTb007f3a37e82';
+const String tokenizationKey = 'sandbox_8hxpnkht_kzdtzv2btm4p7s5j';
+
 ///****Don't change***
 const String topicName = 'web_app';
 const int timeoutRequest = 60;
