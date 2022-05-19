@@ -16,6 +16,7 @@ import 'package:flutter_sslcommerz/sslcommerz.dart';
 import 'package:get/get.dart';
 import 'package:mystarter/constants/strings.dart';
 import 'package:mystarter/constants/style_data.dart';
+import 'package:mystarter/view/screens/gateway/braintree_screen.dart';
 import 'package:mystarter/view/screens/gateway/flutter_wave_screen.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
@@ -122,6 +123,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 radius: 10.0,
                 title: 'Razorpay'.tr,
                 onPress: openCheckout,
+              ),
+              kHeightBox10,
+              DefaultBtn(
+                width: SizeConfig.screenWidth,
+                radius: 10.0,
+                title: 'Braintree'.tr,
+                onPress: () async {
+                  Get.to(() => const BraintreeScreen());
+                },
               ),
               kHeightBox10,
               DefaultBtn(

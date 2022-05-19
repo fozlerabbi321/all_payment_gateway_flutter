@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../constants/colors_data.dart';
@@ -34,12 +36,9 @@ class DefaultBtn extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 0),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          stops: const [0.1, 0.9],
           colors: [
-            btnColor,
-            btnColor2,
+            Color(Random().nextInt(0xFFFF3A27)),
+            kPrimaryColor
           ],
         ),
         border: Border.all(
