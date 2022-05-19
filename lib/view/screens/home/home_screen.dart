@@ -10,6 +10,7 @@ import 'package:mystarter/view/screens/gateway/flutter_wave_screen.dart';
 import '../../../constants/size_config.dart';
 import '../../../helper/stripe_payment_helpter.dart';
 import '../../widgets/default_btn.dart';
+import '../gateway/paystack_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -61,6 +62,7 @@ class HomeScreen extends StatelessWidget {
                 title: 'Flutterwave'.tr,
                 onPress: () async {
                  Get.to(() => const FlutterWaveScreen());
+
                 },
               ),
               kHeightBox10,
@@ -69,10 +71,7 @@ class HomeScreen extends StatelessWidget {
                 radius: 10.0,
                 title: 'Pastack'.tr,
                 onPress: () async {
-                  await StripePaymentHelper().makePayment(
-                    context: context,
-                    amount: '250',
-                  );
+                  Get.to(() => const PayStackScreen());
                 },
               ),
               kHeightBox10,
