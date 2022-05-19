@@ -5,6 +5,7 @@ import 'package:flutter_paypal/flutter_paypal.dart';
 import 'package:get/get.dart';
 import 'package:mystarter/constants/strings.dart';
 import 'package:mystarter/constants/style_data.dart';
+import 'package:mystarter/view/screens/gateway/flutter_wave_screen.dart';
 
 import '../../../constants/size_config.dart';
 import '../../../helper/stripe_payment_helpter.dart';
@@ -59,10 +60,7 @@ class HomeScreen extends StatelessWidget {
                 radius: 10.0,
                 title: 'Flutterwave'.tr,
                 onPress: () async {
-                  await StripePaymentHelper().makePayment(
-                    context: context,
-                    amount: '250',
-                  );
+                 Get.to(() => const FlutterWaveScreen());
                 },
               ),
               kHeightBox10,

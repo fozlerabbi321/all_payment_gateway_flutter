@@ -12,6 +12,8 @@ String combinedUserId(String id1, String id2) {
 
 const String kCurrency = '\$';
 const String kName = 'Fozle Rabbi';
+const String kEmail = 'fozlerabi.on@gmail.com';
+const String kPhone = '8801796710416';
 // Form Error
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
