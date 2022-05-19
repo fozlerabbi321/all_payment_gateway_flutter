@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:mystarter/services/api/app_config.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -9,6 +10,7 @@ import 'package:mystarter/helper/get_di.dart';
 import 'package:mystarter/services/localization_services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'constants/strings.dart';
 import 'view/screens/splash/splash_screen.dart';
 
 late SharedPreferences prefs;
@@ -19,6 +21,10 @@ void main() async {
   await GetStorage.init();
   //Dependency Injection
   await init();
+  //stripe
+  Stripe.publishableKey = kPublishableKey;
+  Stripe.merchantIdentifier = "App Identifier";
+  await Stripe.instance.applySettings();
   //Init my app
   runApp(const MyApp(),);
 }

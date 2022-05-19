@@ -11,7 +11,7 @@ String combinedUserId(String id1, String id2) {
 }
 
 const String kCurrency = '\$';
-
+const String kName = 'Fozle Rabbi';
 // Form Error
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
@@ -29,21 +29,25 @@ const String kAddressNullError = "Please enter your address";
 const String kInvalidNumberError = "Invalid phone number";
 const String kMinWithdrawLimit = "Minimum withdraw limit 1 USD";
 const String serverTimeoutMessage = "Request Time out. Please try again!";
-
+//Stripe key
+String kPublishableKey = 'pk_test_51KzxPNJ51wQ0UOOkIuXWdAOcFBXACfdGjQMF3KeU4E3ANq3KcSxnD5zCJVdzycgwDxHYpJGfxZga494XeY5ZYtjN00bjiwPTkn';
+String kSecretKey = 'sk_test_51KzxPNJ51wQ0UOOk66cioh0gEdv9z8G2tqkP1I0dJW7tt65rZOzt2fk1jm5Re60dCOIrMn4wXTSjoDLBjDkDWdma007PPn4JBu';
+//Paypal credential
+String kPaypalClientId = "AW1TdvpSGbIM5iP4HJNI5TyTmwpY9Gv9dYw8_8yW5lYIbCqf326vrkrp0ce9TAqjEGMHiV3OqJM_aRT0";
+String kPaypalSecretKey = "EHHtTDjnmTZATYBPiGzZC_AZUfMpMAzj2VZUeqlFUrRJA_C0pQNCxDccB5qoRQSEdcOnnKQhycuOWdP9";
+//PayStack credential
+String kPayStackPublicKey = 'pk_test_d6c9db1c01e54ef274b80c6c5138bcdad41da3c3';
+//Flutter wave credential
+String kWavePublicKey = 'FLWPUBK_TEST-b100340af976af485842813badb813b9-X';
+String kWaveSecretKey= 'FLWSECK_TEST-d0a5f60a8bf8f7bb7ac05ca75867a0c0-X';
+String kWaveEncryptionKey= 'FLWSECK_TESTb007f3a37e82';
 ///****Don't change***
 const String topicName = 'web_app';
 const int timeoutRequest = 60;
 // Shared Key
 const String theme = 'theme';
-const String token = 'token';
-const String userId = 'user_id';
-const String userAvatar = 'user_avatar';
-const String userName = 'user_name';
-const String userPassword = 'user_pass';
-const String userDisplayName = 'display_name';
-const String userEmail = 'user_email';
-const String firstName = 'first_name';
-const String lastName = 'last_name';
+const String token = 'theme';
+
 
 ///****Don't change end***
 //Image show and hide
