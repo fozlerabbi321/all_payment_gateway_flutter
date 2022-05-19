@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_paypal/flutter_paypal.dart';
 import 'package:get/get.dart';
+import 'package:mystarter/constants/strings.dart';
 import 'package:mystarter/constants/style_data.dart';
 
 import '../../../constants/size_config.dart';
@@ -19,7 +23,10 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20,),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 20,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,9 +48,8 @@ class HomeScreen extends StatelessWidget {
                 radius: 10.0,
                 title: 'Paypal'.tr,
                 onPress: () async {
-                  await StripePaymentHelper().makePayment(
-                    context: context,
-                    amount: '250',
+                  handlePaypalPayment(
+                    context,
                   );
                 },
               ),
@@ -74,6 +80,71 @@ class HomeScreen extends StatelessWidget {
               kHeightBox10,
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> handlePaypalPayment(BuildContext context)async {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => UsePaypal(
+          sandboxMode: true,
+          clientId: kPaypalClientId,
+          secretKey: kPaypalSecretKey,
+          returnURL: "https://samplesite.com/return",
+          cancelURL: "https://samplesite.com/cancel",
+          transactions: const [
+            {
+              "amount": {
+                "total": '200.12',
+                "currency": "USD",
+                "details": {
+                  "subtotal": '200.12',
+                  "shipping": '0',
+                  "shipping_discount": 0
+                }
+              },
+              "description":
+              "The payment transaction description.",
+              // "payment_options": {
+              //   "allowed_payment_method":
+              //       "INSTANT_FUNDING_SOURCE"
+              // },
+              "item_list": {
+                "items": [
+                  {
+                    "name": "A demo product",
+                    "quantity": 1,
+                    "price": '200.12',
+                    "currency": "USD"
+                  }
+                ],
+
+                // shipping address is not required though
+                "shipping_address": {
+                  "recipient_name": kName,
+                  "line1": "Travis County",
+                  "line2": "",
+                  "city": "Austin",
+                  "country_code": "US",
+                  "postal_code": "73301",
+                  "phone": "+00000000",
+                  "state": "Texas"
+                },
+              }
+            }
+          ],
+          note: "Contact us for any questions on your order.",
+          onSuccess: (Map params) async {
+            log("onSuccess: $params");
+          },
+          onError: (error) {
+            log("onError: $error");
+          },
+          onCancel: (params) {
+            log('cancelled: $params');
+          },
         ),
       ),
     );
