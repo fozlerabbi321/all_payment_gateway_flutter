@@ -17,7 +17,7 @@ class PaytmScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<PaytmScreen> {
-  String mid = "", orderId = "", amount = "", txnToken = "";
+  String mid = "mid_id", orderId = "", amount = "", txnToken = "";
   String result = "";
   bool isStaging = false;
   bool isApiCallInprogress = false;
